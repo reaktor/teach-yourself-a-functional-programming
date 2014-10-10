@@ -87,8 +87,31 @@
                 <p>Try other methods in REPL:</p>
                 <p>http://tinyurl.com/scala-list</p>
             </div>
-            <div class="step" data-x="28000" data-y="0" data-scale="3">
+            <div class="step" data-x="26000" data-y="0" data-scale="3">
                 <h1>Higher-order functions</h1>
+                <p>But functions are values too...</p>
+            </div>
+            <div class="step" data-x="26000" data-y="2000" data-scale="3" data-rotate-x="-90" data-rotate-y="90">
+                <img src="img/xzibit.png" style="width: 100%; height: 100%;">
+            </div>
+            <div class="step" data-x="26000" data-y="4000" data-scale="3">
+                <h1>BOOM!<br />Higher-order functions!</h1>
+                <p>Functions that take functions as parameters or return them</p>
+            </div>
+            <div class="step" data-x="26000" data-y="6000" data-scale="3">
+                <pre>
+                    scala> def incrementer(step:Int) = (num:Int) => num + step
+                    incrementer: (step: Int)Int => Int
+
+                    scala> val plus2 = incrementer(2)
+                    plus2: Int => Int = &lt;function1&gt;
+
+                    scala> plus2(5)
+                    res1: Int = 7
+
+                    scala> plus2(plus2(plus2(5)))
+                    res1: Int = 11
+                </pre>
             </div>
             <div class="step" data-x="28000" data-y="0" data-scale="3">
                 <h1>Collections &amp; functions</h1>
@@ -96,7 +119,7 @@
             <div class="step" data-x="36000" data-y="0" data-scale="3">
                 <h1>Recursion</h1>
             </div>
-            <div class="step" data-x="44000" data-y="0" data-scale="3">
+            <div class="step" data-x="40000" data-y="0" data-scale="3">
                 <h1>Currying</h1>
             </div>
             <div class="step" data-x="44000" data-y="0" data-scale="3">
