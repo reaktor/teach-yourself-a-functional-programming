@@ -14,13 +14,73 @@
                 <p class="small">(yawn)</p>
             </div>
             <div class="step" data-x="8000" data-y="0" data-scale="3">
-                <h1>Meet Mr. REPL</h1>
+                <h1>Basics of functions</h1>
+            </div>
+            <div class="step" data-x="8000" data-y="2000" data-scale="3">
+                <h1>Pure functions</h1>
+                <p>For the same input, always returns the same output</p>
+            </div>
+            <div class="step" data-x="8000" data-y="4000" data-scale="2">
+                <h1>Example</h1>
+                <pre>
+                    plus(x, y) = x + y
+
+                    > plus(1, 2)
+                    3
+                    > plus(1, 2)
+                    3
+                    > plus...
+                </pre>
+            </div>
+            <div class="step" data-x="8000" data-y="6000" data-scale="2">
+                <h1>Function syntax in Javascript</h1>
+                <pre>
+                    function foo(bar, baz) {
+                        var rez = bar + baz;
+                        return rez;
+                    }
+                </pre>
+            </div>
+            <div class="step" data-x="8000" data-y="8000" data-scale="2">
+                <h1>Same thing in Scala...</h1>
+                <pre>
+                    def foo(bar: Int, baz: Int) {
+                        val rez = bar + baz;
+                        rez;
+                    }
+                </pre>
             </div>
             <div class="step" data-x="12000" data-y="0" data-scale="3">
-                <h1>Basics of functions</h1>
+                <h1>Meet Mr. REPL</h1>
             </div>
             <div class="step" data-x="16000" data-y="0" data-scale="3">
                 <h1>Immutability</h1>
+            </div>
+            <div class="step" data-x="16000" data-y="2000" data-scale="2">
+                <h1>Don't change things</h1>
+                <p>Create new things instead</p>
+            </div>
+            <div class="step" data-x="16000" data-y="4000" data-scale="2">
+                <h1>But why?</h1>
+                <pre>
+                    var d = Date.noon()
+                    robotVacuum.runAt(d)
+                    d.setTime(Date.midnight())
+                    dishwasher.runAt(d)
+                </pre>
+                <p>When will robotVacuum run?</p>
+            </div>
+            <div class="step" data-x="16000" data-y="6000" data-scale="2">
+                <h1>Simple example...</h1>
+                <pre>
+                        scala> List(1,2,3,4,5,6).take(2)
+                        res0: List[Int] = List(1, 2)
+                </pre>
+            </div>
+            <div class="step" data-x="16000" data-y="8000" data-scale="2">
+                <h1>Exercise</h1>
+                <p>Try other methods in REPL:</p>
+                <p>http://tinyurl.com/scala-list</p>
             </div>
             <div class="step" data-x="20000" data-y="0" data-scale="3">
                 <h1>Higher-order functions</h1>
