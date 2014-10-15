@@ -1,9 +1,0 @@
-
-
-Step 2
-History:
-- Lambda calculus describes functions and evaluations
-
-
-
-Step 4
