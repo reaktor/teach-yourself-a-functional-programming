@@ -116,48 +116,54 @@
                             <b>error</b>
                         </p>
                     </section>
-                    <section>
+                </section>
+                <section>
+    				<section>
+    					<h1>What is functional programming?</h1>
+    				</section>
 
+    				<section data-markdown>
+                        # Pure functions
+                        
+                        For the same input, always returns the same output
+
+                            > def plus(x, y) = x + y
+                            > plus(1, 2)
+                            3
+                            > plus(1, 2)
+                            3
+                            > plus...
+    				</section>
+                    <section data-markdown>
+                        # Impurity
+
+                        External *state* affects function output
+
+                        e.g. randomness, hard drive or database access, variables
+                    </section>
+
+    				<section data-markdown>
+                        # Function syntax in Javascript
+
+                            function foo(bar, baz) {
+                                return bar + baz;
+                            }
+    				</section>
+
+    				<section data-markdown>
+                        # Same thing in Scala...
+
+                            def foo(bar: Int, baz: Int) = bar + baz
+    				</section>
+
+                    <section data-markdown>
+                        # Function types
+
+                            def foo(bar: Int, baz: Int) = bar + baz
+                            
+                            (Int, Int) => Int
                     </section>
                 </section>
-
-				<section>
-					<h1>What is functional programming?</h1>
-				</section>
-
-				<section>
-					<h1>Pure functions</h1>
-          <p>For the same input, always returns the same output</p>
-				</section>
-
-				<section>
-					<h1>Example</h1>
-          <pre>
-						plus(x, y) = x + y
-						> plus(1, 2)
-						3
-						> plus(1, 2)
-						3
-						> plus...
-            </pre>
-				</section>
-
-				<section>
-					<h1>Function syntax in Javascript</h1>
-          <pre><code>
-            function foo(bar, baz) {
-            	return bar + baz;
-            }
-        	</code></pre>
-				</section>
-
-				<section>
-					<h1>Same thing in Scala...</h1>
-          <pre><code>
-            def foo(bar: Int, baz: Int) = bar + baz
-          </code></pre>
-				</section>
-
 				<section>
 					<section>
 						<h1>Environment setup</h1>
