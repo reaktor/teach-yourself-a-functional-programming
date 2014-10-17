@@ -225,15 +225,61 @@
           <p>http://tinyurl.com/scala-list</p>
 				</section>
 
-				<section>
-					<h1>Higher-order functions</h1>
-          <p>But functions are values too...</p>
-				</section>
+        <section>
+          <section>
+            <h2>Higher order functions</h2>
+          </section>
+          <section>
+            <h2>Function</h2>
+            <p>As learned earlier, a function takes an argument and returns a value</p>
+            <p>
+              <img width="280" height="326" src="../img/function.png">
+            </p>
 
-				<section>
-					<h1>BOOM!<br />Higher-order functions!</h1>
-          <p>Functions that take functions as parameters or return them</p>
-				</section>
+          </section>
+          <section>
+            <h2>Minor recap to type signatures</h2>
+            <p>
+              Int => Int
+            </p>
+            <p>
+              Int => String
+            </p>
+            <p>
+              (Int, Int) => String
+            </p>
+          </section>
+          <section>
+            <h2>Higher order functions</h2>
+            <p>Function can:</p>
+
+            <ul>
+              <li>Take a function as a <strong>parameter</strong></li>
+              <li><strong>Return</strong> a function</li>
+            </ul>
+
+            <p> These are called <strong>higher order functions</strong></p>
+          </section>
+          <section>
+            <h2>Examples:</h2>
+            <pre>
+              scala> def incrementer(step:Int) = (num:Int) => num + step
+              incrementer: (step: Int)Int => Int
+
+              scala> val plus2 = incrementer(2)
+              plus2: Int => Int = &lt;function1&gt;
+
+              scala> plus2(5)
+              res1: Int = 7
+
+              scala> plus2(plus2(plus2(5)))
+              res1: Int = 11
+            </pre>
+
+            <p> These are called <strong>higher order functions</strong></p>
+          </section>
+        </section>
+
 
 				<section>
 					<pre>
