@@ -240,13 +240,31 @@
           <section>
             <h2>Minor recap to type signatures</h2>
             <p>
-              Int => Int
+                Int => Int
+              <pre class="fragment">
+
+              def foobar(a :Int) = a + 1
+
+              def dominateTheWold(a :Int) = {
+                fetchAllAddressesInInternet(a)
+              }
+
+              def fetchAllAddressesInInternet(startPoint :Int) = ???
+              </pre>
             </p>
             <p>
               Int => String
+              <pre class="fragment">
+
+              def foobar(a: Int) = a.toString
+              </pre>
             </p>
             <p>
               (Int, Int) => String
+               <pre class="fragment">
+
+              def brainExplodingSum(a: Int, b :Int) = a.toString + b.toString
+              </pre>
             </p>
           </section>
           <section>
@@ -262,21 +280,46 @@
           </section>
           <section>
             <h2>Examples:</h2>
-            <pre>
-              scala> def incrementer(step:Int) = (num:Int) => num + step
-              incrementer: (step: Int)Int => Int
+            <p>
+              (Int, Int => Int) => Int
+               <pre class="fragment">
 
-              scala> val plus2 = incrementer(2)
-              plus2: Int => Int = &lt;function1&gt;
+              def takesAsParameter(x :Int, y :(Int => Int)) = {
+                y(x)
+              }
+              </pre>
+            </p>
+            <p>
+              Int => (Int => Int)
+               <pre class="fragment">
 
-              scala> plus2(5)
-              res1: Int = 7
+              def returnsFunction(param :Int) = {
+                x :Int => param + x
+              }
+              </pre>
+            </p>
+          </section>
+          <section>
+            <h2>Examples:</h2>
+            <p>
+               What's next functions signature?
+               <pre class="fragment">
 
-              scala> plus2(plus2(plus2(5)))
-              res1: Int = 11
-            </pre>
-
-            <p> These are called <strong>higher order functions</strong></p>
+           def higherOrderFunctionBothWays(x: Int, param :(Int => Int)) = {
+            def innerFunction(a :Int) = {
+              val b = param(2)
+              a + b
+            }
+            p :String => {
+              val innerValue = innerFunction(x)
+              s"when p: $p and innerFunction gives value: $innerValue"
+            }
+          }
+              </pre>
+            </p>
+            <p class="fragment">
+              (Int, Int => Int) => String => String
+            </p>
           </section>
         </section>
 
