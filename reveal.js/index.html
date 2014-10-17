@@ -66,6 +66,8 @@
 				        <h2>Lisp in the 50's</h2>
 				        <h2>The second coming of FP</h2>
 				    </section>
+
+                    <!-- AI programming high hopes failed -> Lisp not interesting anymore -->
 				</section>
                 <section>
                     <section>
@@ -191,39 +193,42 @@
 					<h1>Meet Mr. REPL</h1>
 				</section>
 
-				<section>
-					<h1>Immutability</h1>
-				</section>
+                <section>
 
-				<section>
-					<h1>Don't change things</h1>
-          <p>Create new things instead</p>
-				</section>
+                    <section>
+                        <h1>Immutability</h1>
+                    </section>
 
-				<section>
-					<h1>But why?</h1>
-                <pre><code>
-                    var d = Date.noon()
-                    robotVacuum.runAt(d)
-                    d.setTime(Date.midnight())
-                    dishwasher.runAt(d)
-                </code></pre>
-                <p>When will robotVacuum run?</p>
-				</section>
+                    <section>
+                        <h1>Don't change things</h1>
+                        <p>Create new things instead</p>
+                    </section>
 
-				<section>
-					<h1>Simple example...</h1>
-          <pre>
-						scala> List(1,2,3,4,5,6).take(2)
-						res0: List[Int] = List(1, 2)
-          </pre>
-				</section>
+                    <section>
+                        <h1>But why?</h1>
+                        <pre><code>
+                            var d = Date.noon()
+                            robotVacuum.runAt(d)
+                            d.setTime(Date.midnight())
+                            dishwasher.runAt(d)
+                        </code></pre>
+                        <p>When will robotVacuum run?</p>
+                    </section>
 
-				<section>
-					<h1>Exercise</h1>
-          <p>Try other methods in REPL:</p>
-          <p>http://tinyurl.com/scala-list</p>
-				</section>
+                    <section>
+                        <h1>Simple example...</h1>
+                        <pre>
+                            scala> List(1,2,3,4,5,6).take(2)
+                            res0: List[Int] = List(1, 2)
+                        </pre>
+                    </section>
+
+                    <section>
+                        <h1>Exercise</h1>
+                        <p>Try other methods in REPL:</p>
+                        <p>http://tinyurl.com/scala-list</p>
+                    </section>
+                </section>
 
         <section>
           <section>
@@ -335,7 +340,7 @@
         </section>
 
 
-				<section>
+        <section>
 					<pre>
 						scala> def incrementer(step:Int) = (num:Int) => num + step
 						incrementer: (step: Int)Int => Int
@@ -377,7 +382,28 @@
 						<h1>Homework assignment</h1>
 					</section>
 					<section>
+                        <h1>Project Euler</h1>
+                        <p>A series of programming problems, each more difficult than the other.</p>
+                        <p>Particularly suited for learning functional programming.</p>
+                        <p><b>https://projecteuler.net</b></p>
 					</section>
+                    <section>
+                        <h1>Your task</h1>
+                        <p class="fragment">Complete Project Euler tasks 2, 4, 9, 18 (&amp; 67).</p>
+                        <p class="fragment">Fun fact: #67 was Reaktor recruitment puzzle in Spring 2014.</p>
+                    </section>
+                    <section>
+                        <h1>How to do it?</h1>
+                        <ol>
+                            <li>Fork this repo in GitHub</li>
+                            <li>You'll find test cases in /excercises directory.</li>
+                        </ol>
+                    </section>
+                    <section>
+                        <h1>Followup</h1>
+                        <p>Reaktor office @ Mannerheimintie 2.</p>
+                        <p class="fragment">...and there was much redjuizzing!</p>
+                    </section>
 				</section>
 
 				<!-- EXAMPLES FOLLOW HERE -->
