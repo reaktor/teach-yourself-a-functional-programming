@@ -48,6 +48,9 @@ object Functions {
         }
     }
 
+    def verify(expected: Any, actual: Any) =
+        assert(expected == actual, s"Expected: $expected, actual: $actual")
+
     val tests = List[(String, Function0[Unit])](
         ("plus", () => {
             verify(6, plus(2, 4))
@@ -80,9 +83,6 @@ object Functions {
             verify(List("Jill", "Jack", "John", "George", "Mary", "a", "b", "c"), combine(participants, letters))
         })
     )
-
-    def verify(expected: Any, actual: Any) =
-        assert(expected == actual, s"Expected: $expected, actual: $actual")
 
     val participants = List("Jill", "Jack", "John", "George", "Mary")
     val letters = List("a", "b", "c")
