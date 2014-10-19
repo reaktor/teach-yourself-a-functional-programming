@@ -4,7 +4,7 @@ object HigherOrderFunctions {
     def plus(x:Int):(Int => Int) = (y:Int) => ???
 
     // returns a function that subtracts a given argument with a predefined amount
-    def minus(x:Int):(Int => Int) = (y:Int) => ???
+    def minus(x:Int):(Int => Int) = ???
 
     // calls 'action' function with the given x argument and returns the result
     def doIt(x:Int, action: (Int => Int)):Int = ???
