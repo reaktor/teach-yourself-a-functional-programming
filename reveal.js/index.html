@@ -260,16 +260,23 @@
                     </section>
 
                     <section data-markdown>
-                        # Simple example...
+                        # Simple example
+                        Create a list and take the first 2 of it's elements
                         
-                            scala> List(1,2,3,4,5,6).take(2)
+                            scala> val list = List(1,2,3,4,5,6)
+                            list: List[Int] = List(1, 2, 3, 4, 5, 6)
+                            list.take(2)
                             res0: List[Int] = List(1, 2)
                     </section>
 
                     <section>
                         <h1>Exercise</h1>
+                        <p> Create a list and take all except the first two elements fo the list</p>
                         <p>Try other methods in REPL:</p>
                         <p>http://tinyurl.com/scala-list</p>
+                        <aside class="notes">
+                        	val list = List(1,2,3,4,5,6).drop(2)
+                        </aside>
                     </section>
                 </section>
 
