@@ -1,9 +1,12 @@
 object Functions {
 
-    def plus(x: Int, y:Int):Int = x + y
+    def plus(x: Int, y:Int):Int = ???
     
-    def salutation(name: String) = ???
+    def salutation(name: String):String = ???
 
+    def characters(name: String):Int = ???
+
+    def pow(x: Int, y: Int) = ???
 
 
     def main(args: Array[String]) {
@@ -33,7 +36,15 @@ object Functions {
         }),
         ("salutation", () => {
             verify("Hello, World", salutation("World"))
-            verify(4, plus(2, 2))
+            verify("Hello, Mark" , salutation("Mark"))
+        }),
+        ("character count", () => {
+            verify(6, characters("foobar"))
+            verify(22, characters("functional programming"))
+        }),
+        ("power", () => {
+            verify(216, pow(6, 3))
+            verify(32, pow(2, 5))
         })
     )
 
