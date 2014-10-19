@@ -375,7 +375,7 @@
             <h2>Minor recap to type signatures</h2>
             <p>
                 Int => Int
-              <pre class="fragment">
+              <code><pre class="fragment">
 
               def foobar(a :Int) = a + 1
 
@@ -384,21 +384,15 @@
               }
 
               def fetchAllAddressesInInternet(startPoint :Int) = ???
-              </pre>
+              </pre></code>
             </p>
             <p>
               Int => String
-              <pre class="fragment">
-
-              def foobar(a: Int) = a.toString
-              </pre>
+              <code><pre class="fragment">def foobar(a: Int) = a.toString</pre></code>
             </p>
             <p>
               (Int, Int) => String
-               <pre class="fragment">
-
-              def brainExplodingSum(a: Int, b :Int) = a.toString + b.toString
-              </pre>
+               <code><pre class="fragment">def brainExplodingSum(a: Int, b :Int) = a.toString + b.toString</pre></code>
             </p>
           </section>
           <section>
@@ -413,43 +407,68 @@
             <p> These are called <strong>higher order functions</strong></p>
           </section>
           <section>
-            <h2>Examples:</h2>
+            <h2>Example</h2>
+            <p>
+              Return a function
+            </p>
+            <p>
+              Int => (Int => Int)
+               <code><pre class="fragment">
+
+              def makeMeAPlusFunction(param: Int) = {
+                (x: Int) => param + x
+              }
+            </pre></code>
+            </p>
+            <p>
+              <code><pre class="fragment">
+              def plus4(x:Int) = makeMeAPlusFunction(4)
+
+              plus4(8)
+              > 12
+              </pre></code>
+            </p>
+          </section>
+          <section>
+            <h2>Example</h2>
+            <p>
+              Take a function
+            </p>
             <p>
               (Int, Int => Int) => Int
-               <pre class="fragment">
+              <code><pre class="fragment">
 
               def takesAsParameter(x :Int, y :(Int => Int)) = {
                 y(x)
               }
-              </pre>
+              </pre></code>
             </p>
             <p>
-              Int => (Int => Int)
-               <pre class="fragment">
+              <code><pre class="fragment">
+              def square(x:Int) = x * x
 
-              def returnsFunction(param :Int) = {
-                x :Int => param + x
-              }
-              </pre>
+              takesAsParameter(4, square)
+              > 16
+              </pre></code>
             </p>
           </section>
           <section>
             <h2>Examples:</h2>
             <p>
                What's next functions signature?
-               <pre class="fragment">
+               <code><pre class="fragment">
 
-           def higherOrderFunctionBothWays(x: Int, param :(Int => Int)) = {
-            def innerFunction(a :Int) = {
+           def higherOrderFunctionBothWays(x: Int, param: (Int => Int)) = {
+            def innerFunction(a: Int) = {
               val b = param(2)
               a + b
             }
-            p :String => {
+            (p: String) => {
               val innerValue = innerFunction(x)
               s"when p: $p and innerFunction gives value: $innerValue"
             }
           }
-              </pre>
+              </pre></code>
             </p>
             <p class="fragment">
               (Int, Int => Int) => String => String
