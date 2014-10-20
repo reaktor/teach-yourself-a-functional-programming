@@ -62,10 +62,72 @@
 					</section>
 
 					<section>
-						<h2>Based on lambda calculus</h2>
-				        <h2>Lisp in the 50's</h2>
-				        <h2>The second coming of FP</h2>
-				    </section>
+            <h2>Based on lambda calculus</h2>
+            <h2>Lisp in the 50's</h2>
+            <h2>The second coming of FP</h2>
+			    </section>
+
+          <section>
+            <h2>Alan Turing</h2>
+            <img class="stretch" src="../img/Alan_Turing_photo.jpg">
+          </section>
+
+          <section>
+            <h2>Turing Machine</h2>
+            <img class="stretch" src="../img/turingFull560.jpg">
+          </section>
+
+          <section>
+            <p>&lambda;</p>
+            <p class="fragment">Lambda calculus</p>
+            <p class="fragment">Alonzo Church, 1936</p>
+            <p class="fragment">An alternative computation model</p>
+          </section>
+
+          <section data-markdown>
+            # Substitution model
+                sumOfSquares(x, y) = &radic;x + &radic;y
+                &radic;x = x * x</pre>
+            
+                > sumOfSquares(2, 2 + 4)
+                > sumOfSquares(2, 6)
+                > &radic;2 + &radic;6
+                > 2 * 2 + &radic;6
+                > 2 * 2 + 6 * 6
+                > 4 + 6 * 6
+                > 4 + 36
+                > 40
+          </section>
+
+          <section data-markdown>
+            # LISP
+
+            John McCarthy, 1958
+
+            Particularly popular in AI research
+
+                (cons '(1 2) '(3 4))
+          </section>
+          
+          <section data-markdown>
+            # "AI Winter"
+
+            Declining interest in AI research
+
+            LISP falls out of fashion
+
+            OOP becomes popular in 1990s
+          </section>
+
+          <section data-markdown>
+            # Right now
+            
+            Growing interest
+
+            Modern languages: Scala, Clojure, Haskell, F#
+
+            Elements of functional-style programming adopted in languages using other paradigms (PHP, JS, etc.)
+          </section>
 
                     <!-- AI programming high hopes failed -> Lisp not interesting anymore -->
 				</section>
@@ -122,10 +184,25 @@
                         </p>
                     </section>
                 </section>
-                <section>
+            <section>
+
     				<section>
     					<h1>What is functional programming?</h1>
     				</section>
+
+            <section data-markdown>
+              # No
+
+              Assignment
+              
+              Loops
+
+              Side effects
+
+              Mutating state
+
+              Direct control of execution
+            </section>
 
     				<section data-markdown>
                         # Pure functions
@@ -169,28 +246,34 @@
                             (Int, Int) => Int
                     </section>
                 </section>
-				<section>
-					<section>
-						<h1>Environment setup</h1>
-					</section>
-					<section>
-						<h1>codebox.io</h1>
-						<p>
-							Create your account <u>now</u>
-						</p>
-					</section>
-					<section>
-						<p>
-							Create a <u>Scala</u> box, and choose this url:<br />
-							<code>https://github.com/reaktor/teach-yourself-a-functional-programming.git</code>
-                            <img src="../img/codebox.png">
-						</p>
-					</section>
+                  <section>
                     <section>
-                        <h1>Terminal is here</h1>
-                        <img src="../img/codebox_terminal.png">
+                     <h1>Environment setup</h1>
                     </section>
-				</section>
+                    <section>
+                     <h1>http://c9.io/</h1>
+                     <p>
+                       Create your account <u>now</u>
+                     </p>
+                    </section>
+                    <section>
+                     <p>
+                       Create a new workspace with this url:<br />
+                       <code>https://github.com/reaktor/teach-yourself-a-functional-programming.git</code>
+                     </p>
+                      <p>
+                        <img src="../img/c9_create_workspace.png">
+                        <img src="../img/c9_clone.png">
+                      </p>
+                    </section>
+                    <section>
+                      <h1>start editing!</h1>
+                    </section>
+                    <section>
+                      <h1>update scala</h1>
+                      <img src="../img/install_scala.png">
+                    </section>
+      </section>
 
 				<section>
                     <section data-markdown>
@@ -203,9 +286,9 @@
                     </section>
                     <section data-markdown>
                         # Try it!
-                        Run ´scala´ in codebox.io terminal
+                        Run ´scala´ in c9.io terminal
 
-                            codebox@ab7e4fda32d9:~/workspace$ scala
+                            ~/workspace (master) $ scala
                             Welcome to Scala version 2.9.2 (OpenJDK 64-Bit Server VM, Java 1.7.0_51).
                             Type in expressions to have them evaluated.
                             Type :help for more information.
@@ -313,7 +396,7 @@
             <h2>Minor recap to type signatures</h2>
             <p>
                 Int => Int
-              <pre class="fragment">
+              <code><pre class="fragment">
 
               def foobar(a :Int) = a + 1
 
@@ -322,21 +405,15 @@
               }
 
               def fetchAllAddressesInInternet(startPoint :Int) = ???
-              </pre>
+              </pre></code>
             </p>
             <p>
               Int => String
-              <pre class="fragment">
-
-              def foobar(a: Int) = a.toString
-              </pre>
+              <code><pre class="fragment">def foobar(a: Int) = a.toString</pre></code>
             </p>
             <p>
               (Int, Int) => String
-               <pre class="fragment">
-
-              def brainExplodingSum(a: Int, b :Int) = a.toString + b.toString
-              </pre>
+               <code><pre class="fragment">def brainExplodingSum(a: Int, b :Int) = a.toString + b.toString</pre></code>
             </p>
           </section>
           <section>
@@ -351,43 +428,68 @@
             <p> These are called <strong>higher order functions</strong></p>
           </section>
           <section>
-            <h2>Examples:</h2>
+            <h2>Example</h2>
+            <p>
+              Return a function
+            </p>
+            <p>
+              Int => (Int => Int)
+               <code><pre class="fragment">
+
+              def makeMeAPlusFunction(param: Int) = {
+                (x: Int) => param + x
+              }
+            </pre></code>
+            </p>
+            <p>
+              <code><pre class="fragment">
+              def plus4(x:Int) = makeMeAPlusFunction(4)
+
+              plus4(8)
+              > 12
+              </pre></code>
+            </p>
+          </section>
+          <section>
+            <h2>Example</h2>
+            <p>
+              Take a function
+            </p>
             <p>
               (Int, Int => Int) => Int
-               <pre class="fragment">
+              <code><pre class="fragment">
 
               def takesAsParameter(x :Int, y :(Int => Int)) = {
                 y(x)
               }
-              </pre>
+              </pre></code>
             </p>
             <p>
-              Int => (Int => Int)
-               <pre class="fragment">
+              <code><pre class="fragment">
+              def square(x:Int) = x * x
 
-              def returnsFunction(param :Int) = {
-                x :Int => param + x
-              }
-              </pre>
+              takesAsParameter(4, square)
+              > 16
+              </pre></code>
             </p>
           </section>
           <section>
             <h2>Examples:</h2>
             <p>
                What's next functions signature?
-               <pre class="fragment">
+               <code><pre class="fragment">
 
-           def higherOrderFunctionBothWays(x: Int, param :(Int => Int)) = {
-            def innerFunction(a :Int) = {
+           def higherOrderFunctionBothWays(x: Int, param: (Int => Int)) = {
+            def innerFunction(a: Int) = {
               val b = param(2)
               a + b
             }
-            p :String => {
+            (p: String) => {
               val innerValue = innerFunction(x)
               s"when p: $p and innerFunction gives value: $innerValue"
             }
           }
-              </pre>
+              </pre></code>
             </p>
             <p class="fragment">
               (Int, Int => Int) => String => String
@@ -405,23 +507,6 @@
             <p> Signature to support: Int => Int </p>
           </section>
         </section>
-
-
-        <section>
-					<pre>
-						scala> def incrementer(step:Int) = (num:Int) => num + step
-						incrementer: (step: Int)Int => Int
-
-						scala> val plus2 = incrementer(2)
-						plus2: Int => Int = &lt;function1&gt;
-
-						scala> plus2(5)
-						res1: Int = 7
-
-						scala> plus2(plus2(plus2(5)))
-						res1: Int = 11
-          </pre>
-				</section>
 
 				<section>
 					<h1>Collections &amp; functions</h1>
