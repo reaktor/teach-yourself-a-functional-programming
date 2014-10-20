@@ -676,7 +676,7 @@ res65: List[Int] = List(1, 2, 3, 4)
               <li class="fragment"><pre><code>
 scala> List(2,4,6,8).map((x) => x * 2)
 
-js> _.map([2,4,6,8], function(x) { return x * 2})
+js> [2,4,6,8].map(function(x) { return x * 2})
               </code></pre></li>
             </ul>
           </section>
@@ -693,13 +693,36 @@ js> _.map([2,4,6,8], function(x) { return x * 2})
               <li class="fragment"><pre><code>
 scala> List(2,4,6,8).filter((x) => x > 2)
 
-js> _.filter([2,4,6,8], function(x) { return x > 2})
+js> [2,4,6,8].filter(function(x) { return x > 2})
               </code></pre></li>
             </ul>
           </section>
           <section>
             <p>Try in REPL: filter out all the integers whose square is less than 20.</p>
             <pre><code>List(2,5,10,3,7,9).filter(...)</code></pre>
+          </section>
+
+          <section>
+            <h2>reduce()/fold()</h2>
+            <ul>
+              <li class="fragment">Builds a new value (any value) by iterating over the list</li>
+              <li class="fragment">Iterator function takes the accumulator and the next item, returns the new accumulator value</li>
+              <li class="fragment">Takes a list, out comes whatever you choose</li>
+              <li class="fragment">Also known as fold</li>
+              <li class="fragment"><pre><code>
+scala> List("hi", "there").reduce((x, xs) => x ++ xs)
+
+js> ["hi", "there"].reduce(function(xs, x) { return xs + x })
+              </code></pre></li>
+              <li class="fragment">Optionally takes the initial accumulator value</li>
+              <li class="fragment"><pre><code>
+js> ["hi", "there"].reduce(function(xs, x) { return xs + x.length }, 0)
+              </code></pre></li>
+            </ul>
+          </section>
+          <section>
+            <p>Try in REPL: count the elements in the list.</p>
+            <pre><code>[1,2,3,4].reduce(...)</code></pre>
           </section>
 				</section>
 
