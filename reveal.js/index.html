@@ -48,33 +48,66 @@
 					<p>
 						<small>Class by <a href="http://reaktor.fi">Reaktor</a> / <a href="http://twitter.com/ReaktorNow">@ReaktorNow</a></small>
 					</p>
+          <aside class="notes">
+            - 10min
+
+            - welcome
+            - teachers (Lauri, Miku, Rami, Antti, Timo)
+            - organization
+            - homework
+            - last session (Reaktor office, Fri)
+            - language: Scala
+
+            - Questions/activations
+              ^ what coding languages used? (JS? PHP? Java? Clojure? Haskell? C#?)
+          </aside>
 				</section>
 
 				<section>
 					<section>
 					   <h1>First, a bit of history...</h1>
-	                   <p class="small">(yawn)</p>
-
-					   <aside class="notes">
-					   - Lambda calculus describes functions and evaluations
-					   - Lisp
-					   </aside>
+	           <p class="small">(yawn)</p>
 					</section>
 
 					<section>
             <h2>Based on lambda calculus</h2>
             <h2>Lisp in the 50's</h2>
             <h2>The second coming of FP</h2>
+             <aside class="notes">
+             - Lambda calculus describes functions and evaluations
+             - Lisp
+             </aside>
+             <aside class="notes">
+                - 5min
+             </aside>
 			    </section>
 
           <section>
             <h2>Alan Turing</h2>
             <img class="stretch" src="../img/Alan_Turing_photo.jpg">
+            <aside class="notes">
+             - 5min
+
+             - British mathematician
+             - Cracked the Enigma
+             - Invented the theory of computation (underpinning of computers)
+             - Homosexual, brits treated very poorly
+             - committed suicide
+            </aside>
           </section>
 
           <section>
             <h2>Turing Machine</h2>
             <img class="stretch" src="../img/turingFull560.jpg">
+            <aside class="notes">
+              - 5min
+
+              - tape (theoretically infinite)
+              - read/write head 
+              - state table
+              - instructions to move left or right based on state and symbol
+              - "Turing completeness"
+            </aside>
           </section>
 
           <section>
@@ -82,24 +115,34 @@
             <p class="fragment">Lambda calculus</p>
             <p class="fragment">Alonzo Church, 1936</p>
             <p class="fragment">An alternative computation model</p>
+            <aside class="notes">
+              - 5min
+
+              - everything is a function
+              - rules for evaluating (or "substituting") named variables in functions
+              - proven to be turing-complete
+            </aside>
           </section>
 
-          <section data-markdown>
+          <section data-markdown data-notes="^Note:">
             # Substitution model
-                sumOfSquares(x, y) = &radic;x + &radic;y
-                &radic;x = x * x</pre>
+                sumOfSquares(x, y) = x^2 + y^2
+                x^2 = x * x
             
                 > sumOfSquares(2, 2 + 4)
                 > sumOfSquares(2, 6)
-                > &radic;2 + &radic;6
-                > 2 * 2 + &radic;6
+                > 2^2 + 6^2
+                > 2 * 2 + 6^2
                 > 2 * 2 + 6 * 6
                 > 4 + 6 * 6
                 > 4 + 36
                 > 40
+            
+            Note:
+              - 5min
           </section>
 
-          <section data-markdown>
+          <section data-markdown data-notes="^Note:">
             # LISP
 
             John McCarthy, 1958
@@ -107,6 +150,11 @@
             Particularly popular in AI research
 
                 (cons '(1 2) '(3 4))
+            
+            Note:
+              - lots of parentheses (S-expressions)
+              - originally intended for expressing mathematical functions
+              - LISP machines
           </section>
           
           <section data-markdown>
@@ -119,14 +167,17 @@
             OOP becomes popular in 1990s
           </section>
 
-          <section data-markdown>
+          <section data-markdown data-notes="^Note:">
             # Right now
             
             Growing interest
 
             Modern languages: Scala, Clojure, Haskell, F#
-
             Elements of functional-style programming adopted in languages using other paradigms (PHP, Java 8, JS, etc.)
+
+            Note:
+              - internet scale
+              - express problems without specifying implementation details
           </section>
 
                     <!-- AI programming high hopes failed -> Lisp not interesting anymore -->
@@ -154,13 +205,19 @@
                         <p class="fragment fade-in">
                             <b>Boolean</b>
                         </p>
+                        <aside class="notes">
+                          - 5min
+
+                          - if you've ever programmed, you're already using types
+                        </aside>
                     </section>
                     <section>
                         <h1>Static vs dynamic</h1>
                         <p>Static: type known at <b>compile</b> time.</p>
                         <p>All things still have types at runtime.</p>
                     	<aside class="notes">
-					   						Java and C# is statically typed. JS us dynamically typed.
+					   						- Java and C# is statically typed. JS is dynamically typed.
+                        - Scala is also statically typed, and compiler has type inference
 					   					</aside>
                     </section>
                     <section>
@@ -182,6 +239,13 @@
                         <p class="fragment fade-in">
                             <b>error</b>
                         </p>
+                        <aside class="notes">
+                          - operations work on types
+                          - basic principle: work only with suitable signature
+                          - languages can have type conversions
+                          - javascript is notorious
+                          - relaxed type conversions can make code difficult to reason
+                        </aside>
                     </section>
                 </section>
             <section>
@@ -190,7 +254,7 @@
     					<h1>What is functional programming?</h1>
     				</section>
 
-            <section data-markdown>
+            <section data-markdown data-notes="^Note:">
               # No
 
               Assignment
@@ -202,6 +266,29 @@
               Mutating state
 
               Direct control of execution
+              
+              Note:
+                - how do you program then?
+                - it's declarative: you define the desired end result
+                - computer decides how to get there
+            </section>
+
+            <section data-markdown data-notes="^Note:">
+              # Paradigms
+
+              Imperative
+
+              Procedural
+
+              Logical
+              
+              Declarative
+
+              Note:
+                - imperative: PHP, bash scripts etc.
+                - procedural: superclass of imperative, encourages use of functions
+                - procedural functions are more an execution flow than abstraction (i.e. replacement for goto)
+                - logical: prolog, relations etc.
             </section>
 
     				<section data-markdown>
@@ -297,6 +384,25 @@
                             Hello, World
 
                             scala> _
+                    </section>
+                    <section data-markdown>
+                      # Exercise
+                      Basics of functions
+                      
+                          $ cd exercises
+                          $ scala functions.scala
+
+                          Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF8
+                          Running 8 tests:
+                            - 'plus': an implementation is missing
+                            - 'salutation': an implementation is missing
+                            - 'character count': an implementation is missing
+                            - 'power': an implementation is missing
+                            - 'time-of-day-aware salutation': an implementation is missing
+                            - 'get first two names in list': an implementation is missing
+                            - 'get last two names in list': an implementation is missing
+                            - 'combine two lists': an implementation is missing
+
                     </section>
 
 				</section>
@@ -494,6 +600,23 @@
             <p class="fragment">
               (Int, Int => Int) => String => String
             </p>
+          </section>
+          <section data-markdown>
+            # Exercise
+
+            Try creating some higher-order functions
+
+                $ cd exercise
+                $ scala higherorder.scala
+                Running 7 tests:
+                  - 'plus': an implementation is missing
+                  - 'minus': an implementation is missing
+                  - 'do it!': an implementation is missing
+                  - 'combine integer functions': an implementation is missing
+                  - 'combine generic functions': an implementation is missing
+                  - 'curry with integers': an implementation is missing
+                  - 'generic two-argument curry': an implementation is missing
+
           </section>
           <section>
             <h2>Demo</h2>
