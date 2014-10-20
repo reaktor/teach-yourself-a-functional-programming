@@ -638,7 +638,67 @@
         </section>
 
 				<section>
-					<h1>Collections &amp; functions</h1>
+          <section>
+            <h1>Collections &amp; functions</h1>
+          </section>
+          <section>
+            <h1>Lists</h1>
+            <ul>
+              <li class="fragment">A List holds zero or more items of the same type (in Scala)
+                <pre><code>
+scala> List(1,2,3,4)
+res65: List[Int] = List(1, 2, 3, 4)
+                </code></pre>
+              </li>
+              <li class="fragment">
+                Scala's list is a linked list that always ends in Nil
+                <pre><code>List() == Nil</code></pre>
+              </li>
+              <li class="fragment">List has a length: <pre><code>List(4,5).length</code></pre></li>
+              <li class="fragment">To check if list is empty: <pre><code>List().isEmpty</code></pre></li>
+            </ul> 
+          </section>
+          <section>
+            <h2>Try in REPL</h2>
+            <p>first/head</p>
+            <p>rest/tail</p>
+            <p>concat/++</p>
+            <p>min</p>
+            <p>max</p>
+          </section>
+          <section>
+            <h2>map</h2>
+            <ul>
+              <li class="fragment">"maps" a function over a list</li>
+              <li class="fragment">Give it a list, out comes a list</li>
+              <li class="fragment">Applies a function to each element in list and returns a new list</li>
+              <li class="fragment"><pre><code>
+scala> List(2,4,6,8).map((x) => x * 2)
+
+js> _.map([2,4,6,8], function(x) { return x * 2})
+              </code></pre></li>
+            </ul>
+          </section>
+          <section>
+            <p>Try in REPL: uppercase every string in list.</p>
+            <pre><code>List("hello", "world").map(...)</code></pre>
+          </section>
+          <section>
+            <h2>filter</h2>
+            <ul>
+              <li class="fragment">Returns a new list with each element the function returns true for</li>
+              <li class="fragment">Give it a list, out comes a list</li>
+              <li class="fragment"><pre><code>
+scala> List(2,4,6,8).filter((x) => x > 2)
+
+js> _.filter([2,4,6,8], function(x) { return x > 2})
+              </code></pre></li>
+            </ul>
+          </section>
+          <section>
+            <p>Try in REPL: filter out all the integers whose square is less than 20.</p>
+            <pre><code>List(2,5,10,3,7,9).filter(...)</code></pre>
+          </section>
 				</section>
 
 				<section>
