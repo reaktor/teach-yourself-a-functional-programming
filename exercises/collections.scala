@@ -35,6 +35,13 @@ object Functions {
     // and reverse the result before returning it
     def longestNameInList(names:List[String]) = ???
 
+    // Join list `xs` of string with separator string `sep` into a string
+    def joinWithSep(xs: List[String], sep: String): String = ???
+
+    // Take sums of lists and return those with sum greater than 20
+    //
+    // sumOfLists20(List(List(1,2,3), List(2,10,9))) == List(21)
+    def sumOfLists20(xs: List[List[Int]]): List[Int] = ???
 
     def main(args: Array[String]) {
         
@@ -96,9 +103,16 @@ object Functions {
         ("find the longest name in the list", () => {
             verify("drahciR", longestNameInList(List("Jack", "John", "Jill", "Richard", "Jim")))
             verify("adan", longestNameInList(List()))
+        }),
+
+        ("join with separator", () => {
+            verify("hello, world!", joinWithSep(List("hello", "world!"), ", "))
+            verify("This, that, and the other", joinWithSep(List("This", "that", "and the other"), ", "))
+        }),
+
+        ("sum of lists greater than 20", () => {
+            verify(List(30, 40), sumOfLists20(List(List(1,10), List(5,15), List(5, 20, 5), List(10,10,5,5,3,7))))
         })
-
-
     )
 
 }
