@@ -9,7 +9,7 @@ object Functions {
     // counts the number of characters in a given string
     def characters(name: String):Int = ???
 
-    // counts the number of characters in a given string
+    // returns the base x to the power y, i.e. x^y
     def pow(x: Int, y: Int) = ???
 
     /** Salutes the user according to the time of day given in isDayTime
