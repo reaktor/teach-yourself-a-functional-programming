@@ -1,13 +1,5 @@
 object Recursion {
 
-
-    /** computes fibonacci value for a given number
-      * 
-      * fibonacci sequence for number x can be obtained
-      * by calculating fib(x - 1) + fib(x - 2)
-      */
-    def fib(num:Int) = ???
-
     /** computes factorial of a number
       *
       * e.g.
@@ -16,6 +8,12 @@ object Recursion {
       */
     def fact(num:Int) = ???
 
+    /** computes fibonacci value for a given number
+      *
+      * fibonacci sequence for number x can be obtained
+      * by calculating fib(x - 1) + fib(x - 2)
+      */
+    def fib(num:Int) = ???
 
     /** returns true if 'list' contains 'needle'
       *
@@ -24,10 +22,17 @@ object Recursion {
     def contains[A](list: List[A], needle: A):Boolean = ???
 
 
+    /** retuns the length of the given string without invoking the length
+     * function of String or the size function of List
+     *
+     * Tip: a string in scala can be converted to a list of characters
+     * with String.toList()
+     */
+    def length(s: String): Int = ???
 
 
     def main(args: Array[String]) {
-        
+
         println(s"${Console.GREEN}Running ${tests.size} tests:")
 
         tests.foreach { (fixture) =>
@@ -89,6 +94,11 @@ object Recursion {
             verify(false, contains(List("faz"), "foo"))
             verify(true, contains(List("faz","baz","foo"), "foo"))
             verify(false, contains(List("faz","baz","bar"), "foo"))
+        }),
+        ("length", () => {
+            verify(3, length("foo"))
+            verify(11, length("foo bar baz"))
+            verify(56, length("A monad is just a monoid in the category of endofunctors"))
         })
     )
 
