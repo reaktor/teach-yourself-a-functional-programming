@@ -724,6 +724,24 @@ js> ["hi", "there"].reduce(function(xs, x) { return xs + x.length }, 0)
             <p>Try in REPL: count the elements in the list.</p>
             <pre><code>[1,2,3,4].reduce(...)</code></pre>
           </section>
+          <section>
+            <h2>More exercises in exercises/collections.scala</h2>
+            <pre><code>(master) $ scala exercises/collections.scala</code></pre>
+          </section>
+
+          <section>
+            <h1>Tuples (in Scala)</h1>
+            <ul>
+              <li class="fragment">A thing that holds 2-22 values of arbitraty type</li>
+              <li class="fragment">Size is known at compile time unlike with lists</li>
+              <li class="fragment">Often used for returning multiple values from functions</li>
+              <li class="fragment">Scala has syntax for tuples: <code>(1, "hello")</code></li>
+              <li class="fragment">Fields can be accessed <pre><code>
+scala> (1, "Hello")._2
+res14: String = Hello
+              </code></pre></li>
+            </ul>
+          </section>
 				</section>
 
 				<section>

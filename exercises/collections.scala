@@ -43,6 +43,12 @@ object Functions {
     // sumOfLists20(List(List(1,2,3), List(2,10,9))) == List(21)
     def sumOfLists20(xs: List[List[Int]]): List[Int] = ???
 
+
+    // Return only cards of suit "heart"
+    //
+    // onlyHearts(List(("diamond", 4), ("heart", 9), ("clubs", 10))) ==  List(("heart", 9))
+    def onlyHearts(xs: List[(String, Int)]): List[(String, Int)] = ???
+
     def main(args: Array[String]) {
         
         println(s"${Console.GREEN}Running ${tests.size} tests:")
@@ -112,6 +118,10 @@ object Functions {
 
         ("sum of lists greater than 20", () => {
             verify(List(30, 40), sumOfLists20(List(List(1,10), List(5,15), List(5, 20, 5), List(10,10,5,5,3,7))))
+        }),
+
+        ("cards with hearts", () => {
+            verify(List(("heart", 10), ("heart", 4)), onlyHearts(List(("heart", 10), ("clubs", 8), ("heart", 4))))
         })
     )
 
