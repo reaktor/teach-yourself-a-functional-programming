@@ -667,8 +667,9 @@ res65: List[Int] = List(1, 2, 3, 4)
             <p>max</p>
           </section>
           <section>
-            <h2>map</h2>
+            <h2>map()</h2>
             <ul>
+              <li class="fragment"><code>map[B](f: (A) => B): List[B]</code></li>
               <li class="fragment">"maps" a function over a list</li>
               <li class="fragment">Give it a list, out comes a list</li>
               <li class="fragment">Applies a function to each element in list and returns a new list</li>
@@ -684,8 +685,9 @@ js> _.map([2,4,6,8], function(x) { return x * 2})
             <pre><code>List("hello", "world").map(...)</code></pre>
           </section>
           <section>
-            <h2>filter</h2>
+            <h2>filter()</h2>
             <ul>
+              <li class="fragment"><code>filter(f: (A) => Boolean): List[A]</code></li>
               <li class="fragment">Returns a new list with each element the function returns true for</li>
               <li class="fragment">Give it a list, out comes a list</li>
               <li class="fragment"><pre><code>
