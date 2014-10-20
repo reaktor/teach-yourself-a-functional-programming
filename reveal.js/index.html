@@ -704,7 +704,57 @@ js> _.filter([2,4,6,8], function(x) { return x > 2})
 				</section>
 
 				<section>
-					<h1>Recursion</h1>
+          <section>
+					  <h1>Recursion</h1>
+          </section>
+          <section>
+            <p>"Recursion is a form of problem solving in which the solution to a problem is defined by the solution to smaller instances of the same problem"</p>
+            <p></p>
+            <p class="fragment">Ok great. And what does that mean?</p>
+          </section>
+          <section>
+            <img class="stretch" src="../img/recursion.png">
+          </section>
+          <section>
+            <h2>Recursion: a tale of two cases</h2>
+            <ol>
+              <li class="fragment">The recursive case that invokes the function itself with a subset of the given problem</li>
+              <li class="fragment">The base case that stops the recursion</li>
+            </ol>
+          </section>
+          <section>
+            <h2>Classic example</h2>
+            <pre class="fragment"><code>
+              0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+            </code></pre>
+            <p class="fragment">is called the <i>Fibbonacci</i> sequence where <i>fib(n)</i> is defined as</p>
+            <pre class="fragment"><code>
+              fib(0) = 0                       // Base case
+              fib(1) = 1                       // Base case
+              fib(n) = fib(n - 1) + fib(n - 2) // Recursive case
+            </code></pre>
+          </section>
+          <section>
+            <p>Computation of <i>fib(4)</i></p>
+            <pre class="fragment"><code>fib(4)</code></pre>
+            <pre class="fragment"><code>fib(3) + fib(2)</code></pre>
+            <pre class="fragment"><code>fib(2) + fib(1) + fib(2)</code></pre>
+            <pre class="fragment"><code>fib(2) + fib(1) + fib(1) + fib(0)</code></pre>
+            <pre class="fragment"><code>fib(1) + fib(0) + fib(1) + fib(1) + fib(0)</code></pre>
+            <pre class="fragment"><code>1 + fib(0) + fib(1) + fib(1) + fib(0)</code></pre>
+            <pre class="fragment"><code>1 + 0 + fib(1) + fib(1) + fib(0)</code></pre>
+            <pre class="fragment"><code>1 + 0 + 1 + fib(1) + fib(0)</code></pre>
+            <pre class="fragment"><code>1 + 0 + 1 + 1 + fib(0)</code></pre>
+            <pre class="fragment"><code>1 + 0 + 1 + 1 + 0</code></pre>
+            <pre class="fragment"><code>3</code></pre>
+          </section>
+          <section>
+            <img class="stretch" src="../img/fib.png">
+          </section>
+          <section>
+            <h2>Excercise</h2>
+            <p class="fragment">Implement <i>fib()</i></p>
+          </section>
 				</section>
 
 				<section>
