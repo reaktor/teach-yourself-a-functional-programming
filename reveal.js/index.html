@@ -793,12 +793,91 @@ res14: String = Hello
             <img class="stretch" src="img/fib.png">
           </section>
           <section>
+            <p>Some pure functional programming languages like Haskell don't have loop control structures like <code>for</code> and <code>while</code></p>
+            <p class="fragment">These languages rely solely on recursion to achieve repetion</p>
+            <p class="fragment">Nonetheless these languages are <i>turing complete</i>, i.e. they solve the same set of problems as a Turing machine</p>
+            <p class="fragment">(This just means that they are universal languages)</p>
+          </section>
+          <section>
+            <p>But wait!</p>
+            <p class="fragment">What if we call our <i>fib()</i> with a large(ish) value for <code>n</code>?</p>
+            <pre class="fragment"><code>
+              def fib(n: Int) = {
+                if (n == 0) {
+                  0
+                } else if (n == 1) {
+                  1
+                } else {
+                  fib(n - 1) + fib(n - 2)
+                }
+              }
+
+              fib(10000)
+            </code></pre>
+            <p class="fragment">BOOM</p>
+            <pre class="fragment"><code>
+              java.lang.StackOverflowError
+            </code></pre>
+          </section>
+          <section>
+            <p>How can we prevent this?</p>
+            <p class="fragment">The last call in a function is called the <i>tail call</i></p>
+            <p class="fragment">If the last call in a function is a direct or indirect recursive call, the function is <i>tail recursive</i></p>
+            <p class="fragment">Tail calls can be optimized at compile and/or runtime</p>
+          </section>
+          <section>
+            <p>Tail recursive <i>fib()</i></p>
+            <pre class="fragment"><code>
+              def fib(n: Long) = fibTail(n, 0, 1)
+
+              def fibTail(n: Long, a: Long, b: Long): Long = {
+                if (n == 0) {
+                  a
+                } else if (n == 1) {
+                  b
+                } else {
+                  fibTail(n - 1, b, a + b)
+                }
+              }
+            </code></pre>
+            <aside class="notes">
+              - Scala has only limited support for tail call optimization and will replace a recursive tail call with iteraton
+              - Other languages just pop the intemediary calls from the stack and return to the original call
+              - Tail call optimization can be disabled in scala by using the flag -g:notailcalls
+					  </aside>
+          </section>
+          <section>
             <h2>Excercise tiem!</h2>
           </section>
 				</section>
 
 				<section>
-					<h1>Currying</h1>
+           <section>
+					   <h1>Pattern matching</h1>
+           </section>
+           <section>
+             <p>"Pattern matching is the act of checking a given sequence of tokens for the presence of the constituents of some pattern"</p>
+           </section>
+           <section>
+             <p>Matching simple types</p>
+             <pre class="fragment"><code>
+               def fib(n: Int) = n match {
+                 case 0 | 1 => n
+                 case _ => fib(n - 1) + fib(n - 2)
+               }
+             </code></pre>
+           </section>
+           <section>
+             <p>Matching complex types</p>
+             <pre class="fragment"><code>
+               def length(s: String) = length0(s.toList, 0)
+
+               def length0(s: List[Char], count: Int): Int = s match {
+                 case x :: rest => length0(rest, count + 1)
+                 case Nil => count
+               }
+             </code></pre>
+           </section>
 				</section>
 
 				<section>
