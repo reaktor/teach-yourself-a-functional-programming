@@ -847,7 +847,7 @@ res14: String = Hello
 					  </aside>
           </section>
           <section>
-            <h2>Excercise tiem!</h2>
+            <h2>Exercise tiem!</h2>
           </section>
 				</section>
 
@@ -881,12 +881,124 @@ res14: String = Hello
 				</section>
 
 				<section>
-          <h1>FRP</h1>
-          <p>a.k.a. Functional Reactive Programming</p>
-				</section>
+          <section>
+					  <h1>Monads</h1>
+            <p class="fragment">"A monad is just a monoid in the category of endofunctors, what's the problem?"</p>
+          </section>
+          <section>
+            <p>The problem with empty lists</p>
+            <pre class="fragment"><code>
+              def headOf(l: List[String]): String = l.head()
+            </code></pre>
+            <p class="fragment">What if we invoke this with an empty list?</p>
+            <p class="fragment">BOOM</p>
+            <pre class="fragment"><code>
+              java.util.NoSuchElementException: head of empty list
+            </code></pre>
+          </section>
+          <section>
+            <p>Let's make the empty list a special case!</p>
+            <pre class="fragment"><code>
+              def headOf(l: List[String]): String = {
+                if (l.isEmpty) {
+                  null
+                } else {
+                  l.head()
+                }
+              }
+            </code></pre>
+            <p class="fragment">What if we invoke this with an empty list?</p>
+            <pre class="fragment"><code>
+              null
+            </code></pre>
+            <p class="fragment">... Mmmmokay, that'll have to do</p>
+          </section>
+          <section>
+            <p>Now we need the lowercase version of the first element of a given list of strings</p>
+            <pre class="fragment"><code>
+              def lowercaseHeadOf(l: List[String]): String = {
+                headOf(l).toLowerCase
+              }
+            </code></pre>
+            <p class="fragment">What if we invoke this with an empty list?</p>
+            <p class="fragment">BOOM</p>
+            <pre class="fragment"><code>
+              java.lang.NullPointerException
+            </code></pre>
+            <pre class="fragment"><code>
+              def headOf(l: List[String]): String = {
+                if (l.isEmpty) {
+                  null
+                } else {
+                  l.head()
+                }
+              }
+            </code></pre>
+          </section>
+          <section>
+            <p>Pfffft. Special case again</p>
+            <pre class="fragment"><code>
+              def lowercaseHeadOf(l: List[String]): String = {
+                val s = headOf(l)
+                if (s == null) {
+                  null
+                } else {
+                  s.toLowerCase
+                }
+              }
+            </code></pre>
+            <p class="fragment">Stop.</p>
+            <p class="fragment">There has to be a better way</p>
+          </section>
+          <section>
+            <h2>Enter the Option Monad</h2>
+          </section>
+          <section>
+            <p>The Option Monad</p>
+            <ul>
+              <li class="fragment">represents a computation that may not have a result</li>
+              <li class="fragment">computation has a result -> <code>Some(value)</code></li>
+              <li class="fragment">computation has no result -> <code>None</code></li>
+            </ul>
+            <pre class="fragment"><code>
+              sealed trait Option[A]
 
-				<section>
-					 <h1>Pattern matching</h1>
+              case class Some[A](a: A) extends Option[A]
+              case class None[A] extends Option[A]
+            </code></pre>
+          </section>
+          <section>
+            <h2>And?</h2>
+            <ul>
+              <li class="fragment"><code>Option</code> implements all the nice higher order functions like <code>map</code> and <code>filter</code></li>
+              <li class="fragment"><code>Some.map(f)</code> returns a new <code>Some</code> with the contained value transformed by the function <code>f</code></li>
+              <li class="fragment"><code>None.map(f)</code> returns <code>None</code></li>
+            </ul>
+          </section>
+          <section>
+            <h2>First string lowercasing revisited</h2>
+            <pre class="fragment"><code>
+              def headOf(l: List[String]): Option[String] = {
+                if (l.isEmpty) {
+                  None
+                } else {
+                  Some(l.head())
+                }
+              }
+            </code></pre>
+            </code></pre>
+            <pre class="fragment"><code>
+              def headOf(l: List[String]): Option[String] = {
+                lowercaseHeadOf(l).map(s => s.toLowerCase())
+              }
+            </code></pre>
+            <p class="fragment"><code>List</code> kindly provides a <code>headOption</code> function</p>
+            <pre class="fragment"><code>
+              def lowercaseHeadOf(l: List[String]): Option[String] = {
+                l.headOption()
+              }
+            </code></pre>
+          </section>
 				</section>
 
 				<section>
@@ -908,7 +1020,7 @@ res14: String = Hello
                         <h1>How to do it?</h1>
                         <ol>
                             <li>Fork this repo in GitHub</li>
-                            <li>You'll find test cases in /excercises directory.</li>
+                            <li>You'll find test cases and function stubs in the /excercises directory.</li>
                         </ol>
                     </section>
                     <section>
